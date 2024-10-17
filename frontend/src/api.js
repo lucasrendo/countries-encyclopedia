@@ -2,7 +2,7 @@ const baseUrl = process.env.REACT_APP_API_URL;
 
 export const getCountries = async () => {
     try {
-        const response = await fetch(`${baseUrl}/`);
+        const response = await fetch(baseUrl);
         const data = await response.json();
 
         return data;
