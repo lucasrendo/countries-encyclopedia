@@ -1,20 +1,16 @@
+import { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import List from './List/List';
+import Country from './Country/Country';
+
 function App() {
     return (
-        <div className="App">
-            <header className="App-header">
-                <p>
-                    Edit <code>src/App.js</code> and save to reload.
-                </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a>
-            </header>
-        </div>
+        <Router>
+            <Routes>
+                <Route path="/" element={<List />} />
+                <Route path="/country" element={<Country />} />
+            </Routes>
+        </Router>
     );
 }
 
