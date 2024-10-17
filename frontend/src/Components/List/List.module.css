@@ -2,7 +2,6 @@ div {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
     background-color: #f5f5f5;
     padding: 1rem;
 }
@@ -25,12 +24,10 @@ li {
     transition: box-shadow 0.3s ease;
 }
 
-/* Hover effect for list items */
 li:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Country name and code styling */
 h2 {
     font-size: 1.2rem;
     font-weight: 500;
@@ -39,7 +36,6 @@ h2 {
     text-align: center;
 }
 
-/* Styling for the links */
 a {
     text-decoration: none;
     color: #007bff;
