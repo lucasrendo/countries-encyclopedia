@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "main": "index.js",
     "scripts": {
-        "start": "node src/index.js"
+        "start": "nodemon --exec babel-node src/index.js"
     },
     "keywords": [],
     "author": "Lucas Rendo",
@@ -15,6 +15,9 @@
         "nodemon": "^3.1.7"
     },
     "devDependencies": {
+        "@babel/core": "^7.25.8",
+        "@babel/node": "^7.25.7",
+        "@babel/preset-env": "^7.25.8",
         "eslint": "^8.57.1",
         "eslint-config-airbnb-base": "^15.0.0",
         "eslint-plugin-import": "^2.31.0"
