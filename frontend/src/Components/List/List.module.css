@@ -1,0 +1,72 @@
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    padding: 1rem;
+}
+
+ul {
+    display: grid;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 1200px;
+    list-style-type: none;
+}
+
+li {
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Hover effect for list items */
+li:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Country name and code styling */
+h2 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #333333;
+    margin: 0;
+    text-align: center;
+}
+
+/* Styling for the links */
+a {
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+@media (min-width: 1024px) {
+    /* Desktop */
+    ul {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    /* Laptop */
+    ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    /* Mobile */
+    ul {
+        grid-template-columns: 1fr;
+    }
+}
