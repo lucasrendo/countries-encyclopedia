@@ -48,10 +48,8 @@ export const getCountry = async (req, res) => {
 
         // Return only relevant data
         return res.status(200).json({
-            info: {
-                ...info,
-                borders: info.borders?.map((c) => ({ name: c.commonName, code: c.countryCode }))
-            },
+            ...info,
+            borders: info.borders?.map((c) => ({ name: c.commonName, code: c.countryCode })),
             flag: flag.data?.flag,
             population: population.data?.populationCounts
         });
