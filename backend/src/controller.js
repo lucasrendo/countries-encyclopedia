@@ -51,7 +51,7 @@ export const getCountry = async (req, res) => {
             ...info,
             borders: info.borders?.map((c) => ({ name: c.commonName, code: c.countryCode })),
             flag: flag.data?.flag,
-            population: population.data?.populationCounts
+            population: population.data?.populationCounts.map(({ year, value }) => [year, value])
         });
     } catch (error) {
         console.log(error);
