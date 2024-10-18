@@ -29,22 +29,32 @@ export const getCountry = async (req, res) => {
         const infoRes = await getCountryInfo(code);
         const flagRes = await getCountryFlag(code);
         const populationRes = await getCountryPopulation(name);
-        const responses = [infoRes, flagRes, populationRes];
 
-        // Check if any response failed connection, then check for fail status codes
-        for (let i = 0; i < responses.length; i++) {
-            if (res.error) {
-                throw responses[i].data;
-            } else if (responses[i].status !== 200) {
-                // eslint-disable-next-line no-await-in-loop
-                const data = await responses[i].json();
-                return res.status(responses[i].status).json(data);
-            }
+        // Check for connection error then for fail status code
+        if (infoRes.error) {
+            throw infoRes.data;
+        } else if (infoRes.status !== 200) {
+            const data = await infoRes.json();
+            return res.status(infoRes.status).json({ endpoint: 'info', data });
+        }
+
+        if (flagRes.error) {
+            throw flagRes.data;
+        } else if (flagRes.status !== 200 && flagRes.status !== 404) {
+            const data = await flagRes.json();
+            return res.status(flagRes.status).json({ endpoint: 'flag', data });
+        }
+
+        if (populationRes.error) {
+            throw populationRes.data;
+        } else if (populationRes.status !== 200 && populationRes.status !== 404) {
+            const data = await populationRes.json();
+            return res.status(populationRes.status).json({ endpoint: 'population', data });
         }
 
         const info = await infoRes.json();
-        const flag = await flagRes.json();
-        const population = await populationRes.json();
+        const flag = flagRes.status === 200 && (await flagRes.json());
+        const population = populationRes.status === 200 && (await populationRes.json());
 
         // Return only relevant data
         return res.status(200).json({
