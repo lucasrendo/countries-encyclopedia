@@ -13,7 +13,7 @@ This application provides details about various countries
 
 ## Backend Setup
 
-1. Navigate to the backend directory:
+1. Navigate to the backend directory from the root directory:
 
     ```sh
     cd backend
@@ -41,10 +41,10 @@ It should now display the message _"server listening on port 4000"_
 
 ## Frontend Setup
 
-1. Navigate to the frontend directory:
+1. Navigate to the frontend directory from the root directory:
 
     ```sh
-    cd ../frontend
+    cd frontend
     ```
 
 2. Install dependencies:
