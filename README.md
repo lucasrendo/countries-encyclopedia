@@ -16,7 +16,7 @@ This application provides details about various countries
 1. Navigate to the backend directory:
 
     ```sh
-    cd ../backend
+    cd backend
     ```
 
 2. Install dependencies:
