@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useSearchParams, Link, useLocation } from 'react-router-dom';
+import { LineChart } from 'react-chartkick';
 import { getCountry } from '../../api';
-import './Country.module.css';
-import styles from './Country.module.css';
 import Loading from '../Loading/Loading';
+import styles from './Country.module.css';
+import './Country.module.css';
+import 'chartkick/chart.js';
 
 const Country = () => {
     const location = useLocation();
@@ -31,6 +33,7 @@ const Country = () => {
         <Loading />
     ) : (
         <div>
+            <img src={country.flag} alt={`${country.officialName} flag`} />
             <h1>{country.officialName}</h1>
             <p>
                 <span className={styles.bold}>Region:</span> {country.region}
@@ -45,7 +48,13 @@ const Country = () => {
                     </span>
                 ))}
             </p>
-            <img src={country.flag} alt={`${country.officialName} flag`} />
+            <LineChart
+                data={country.population}
+                xtitle="Time"
+                ytitle="Population"
+                thousands="."
+                empty="No data"
+            />
             <Link to="/">
                 <button>Back</button>
             </Link>
